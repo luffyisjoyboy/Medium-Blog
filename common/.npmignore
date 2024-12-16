@@ -1,0 +1,12 @@
+# Ignore source files
+src/
+
+# Ignore build information and configurations
+tsconfig.json
+tsconfig.tsbuildinfo
+
+# Ignore lock file (optional, but recommended)
+package-lock.json
+
+# Ignore dependencies (always ignored by npm)
+node_modules/
