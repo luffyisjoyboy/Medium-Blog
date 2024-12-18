@@ -25,3 +25,47 @@ logs
 
 # Environment variables
 .env*
+
+# Node.js
+/node_modules/
+
+# Build output
+/dist/
+
+# Vite files
+/.vite/
+*.log
+.vitepress/cache/
+/vite.config.ts
+/vite.config.js
+
+# Static files cache
+/cache/
+/public/cache/
+
+# Editor specific files
+.vscode/
+.idea/
+.DS_Store
+
+# System files
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.*.local
+
+# npm debug log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing and Coverage
+/coverage/
+
+# Mac specific files
+.DS_Store
+._*

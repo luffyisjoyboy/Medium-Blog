@@ -107,12 +107,25 @@ blogRoute.get("/bulk", async (c)=>{
         datasourceUrl: c.env.DATABASE_URL,
     }).$extends(withAccelerate())
     try{
-        let posts = await prisma.post.findMany({})
+        let posts = await prisma.post.findMany({
+            select: {
+                title:true,
+                content:true,
+                published: true,
+                id:true,
+                author: {
+                    select: {
+                        name: true
+                    }
+                }
+            }
+        })
         if(!posts){
             return c.json({
                 msg: "No Posts fetched"
             })
         }
+        
         return c.json({
             posts
         })
@@ -131,6 +144,17 @@ blogRoute.get("/:id", async (c)=>{
         let post = await prisma.post.findUnique({
             where:{
                 id: id
+            },
+            select: {
+                title:true,
+                content:true,
+                published: true,
+                id:true,
+                author: {
+                    select: {
+                        name: true
+                    }
+                }
             }
         })
         if(!post){

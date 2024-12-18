@@ -28,8 +28,9 @@ userRoute.post("/signup", async (c)=>{
     datasourceUrl: c.env.DATABASE_URL,
 }).$extends(withAccelerate())
   try{
-     const user = await prisma.user.create({
+    const user = await prisma.user.create({
     data: {
+      ...data,
       email: data.email,
       password: data.password,
     }
@@ -42,6 +43,7 @@ userRoute.post("/signup", async (c)=>{
   })
   } catch(error){
     c.status(403)
+    console.log(error)
     return c.json({
     msg: "User creation failed",
     })
